@@ -21,12 +21,12 @@ import pandas as pd
 import numpy as np
 
 
-#%%
+#%% paramteres
 
 
-nodes="C:/paper 4/new/SwissprotIL precomutping LCA/nodes.dmp" #location to nodes.dmp
-names="C:/paper 4/new/SwissprotIL precomutping LCA/names.dmp" #location to names.dmp
-ranks=["superkingdom","phylum","class","order","family","genus","species"] 
+nodes="nodes.dmp" #full path location to nodes.dmp
+names="names.dmp" #full path location to names.dmp
+ranks=["superkingdom","phylum","class","order","family","genus","species"] #ranks to be included
 
 #%% iteratively construct taxonomies from nodes.dmp
 
@@ -108,7 +108,7 @@ namesdf=namesdf.set_index("taxid")
 oi=pd.DataFrame(namesdf.loc[p.fillna("1").values.flatten()].values.reshape(-1,len(ranks)),columns=ranks) 
 oi[oi=="root"]=""
 oi.index=p.index
-#%%
+#write outputs
 p=p.fillna("")
 p.to_csv("taxids.tsv",sep="\t")
 oi.to_csv( "names.tsv",sep="\t")
