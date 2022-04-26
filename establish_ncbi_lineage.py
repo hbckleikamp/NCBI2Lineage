@@ -2,7 +2,7 @@
 """
 Created on Mon Apr 11 16:43:37 2022
 
-@author: ZR48SA
+@author: hbckleikamp
 """
 #%% change directory to script directory (should work on windows and mac)
 import os
