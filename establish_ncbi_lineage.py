@@ -111,4 +111,10 @@ oi.index=p.index
 #write outputs
 p=p.fillna("")
 p.to_csv("taxids.tsv",sep="\t")
+
+oi.index.name="OX"
+namesdf.index.name="OX"
+namesdf.columns=["OS"]
+oi=oi.merge(namesdf,on="OX")
+
 oi.to_csv( "names.tsv",sep="\t")
